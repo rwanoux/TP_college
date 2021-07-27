@@ -15,4 +15,5 @@ td.item-attribut {
     border-right: 1px solid gray;
     border-bottom: 2px solid gray;
     text-align: center;
+    white-space: nowrap;
 }
