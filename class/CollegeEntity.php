@@ -23,7 +23,7 @@ abstract class CollegeEntity
             }
         }
     }
-
+ 
 
     //----GETTERS SETTERS
     /**

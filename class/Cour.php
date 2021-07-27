@@ -5,7 +5,6 @@ class Cour extends CollegeEntity
     //---ATTRIBUTS
     private $code_cour;
     private $nom_cour;
-    private $niveau_cour;
     private $code_matiere_cour;
 
 
@@ -56,25 +55,6 @@ class Cour extends CollegeEntity
         return $this;
     }
 
-    /**
-     * Get the value of niveau_cour
-     */
-    public function getNiveau_cour()
-    {
-        return $this->niveau_cour;
-    }
-
-    /**
-     * Set the value of niveau_cour
-     *
-     * @return  self
-     */
-    public function setNiveau_cour($niveau_cour)
-    {
-        $this->niveau_cour = $niveau_cour;
-
-        return $this;
-    }
 
     /**
      * Get the value of code_matiere_cour

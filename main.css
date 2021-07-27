@@ -5,6 +5,14 @@ header {
     background-size: cover;
     text-shadow: 0px 0px 5px white;
 }
+
 header nav {
     background-color: rgba(0, 0, 0, 0.699);
+}
+
+td.item-attribut {
+    padding: 5px;
+    border-right: 1px solid gray;
+    border-bottom: 2px solid gray;
+    text-align: center;
 }

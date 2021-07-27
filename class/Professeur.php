@@ -21,6 +21,14 @@ class professeur extends CollegeEntity
         $this->setEntityType("professeur");
     }
 
+    public function createTableRow(){
+        
+        foreach($this as $att=>$val){
+           $objectArray[$att]=$val;
+           echo ("<td class='item-attribut'>".$val."</td>");
+        }
+       
+    }
     /**
      * Get the value of code_professeur
      */
