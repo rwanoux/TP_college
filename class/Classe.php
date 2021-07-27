@@ -6,6 +6,7 @@ class Classe extends CollegeEntity
     private $code_classe;
     private $nom_classe;
     private $code_prof_ref_classe;
+    static private $attList=["code", "nom", "prof referent" ];
 
 
     //---CONSTRUCT
@@ -15,6 +16,26 @@ class Classe extends CollegeEntity
         $this->setEntityType("classe");
     }
 
+
+    public static function createTableHeader(){
+      
+        echo ("<tr class='item-row-header text-center'>");
+
+         foreach(self::$attList as $att){
+            echo ("<th class='item-attribut-header' >".$att."</th>");
+         }
+        echo"</tr>";
+
+    }
+    public function createTableRow()
+    {
+
+        echo("<tr class='item-row' itemitemId='".$this->getCode_classe()."'>");
+        foreach($this as $att=>$value){
+            echo ("<td class='item-attribut' itemAttr='".$att."'>".$value."</td>");
+        }
+        echo"</tr>";
+    }
     /**
      * Get the value of code_classe
      */

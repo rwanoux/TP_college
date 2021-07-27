@@ -13,6 +13,12 @@ require('class/managers/EleveManager.php');
 $eleveManager = new EleveManager($pdo);
 require('class/managers/ClasseManager.php');
 $classeManager = new ClasseManager($pdo);
+require('class/managers/EvaluationManager.php');
+$evaluationManager = new EvaluationManager($pdo);
+require('class/managers/CourManager.php');
+$courManager = new CourManager($pdo);
+require('class/managers/matiereManager.php');
+$matiereManager = new MatiereManager($pdo);
 
 
 
@@ -21,6 +27,9 @@ require('class/CollegeEntity.php');
 require('class/Professeur.php');
 require('class/Eleve.php');
 require('class/Classe.php');
+require('class/Evaluation.php');
+require('class/Cour.php');
+require('class/Matiere.php');
 
 
 
@@ -32,6 +41,14 @@ require_once('parts/header.php');
 <!---------MAGIC HERE------------------>
 <div class="container">
     <div class="row">
+        <?php if (isset($_GET["entity"])) { ?>
+            <form class="d-flex text-light m-3">
+                <h3 class="mx-3">filtre</h3>
+            
+                <input class="form-control me-2" id="researchInput" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-secondary mx-3" id ="resetFilter">vider le filtre</button>
+            </form>
+        <?php } ?>
 
 
         <?php
@@ -54,35 +71,30 @@ require_once('parts/header.php');
                     $entityList = $classeManager->getAll();
                     break;
                 case "evaluation":
+                    $entityList = $evaluationManager->getAll();
 
                     break;
                 case "cour":
+                    $entityList = $courManager->getAll();
 
                     break;
                 case "matiere":
+                    $entityList = $matiereManager->getAll();
 
                     break;
             }
 
         ?>
             <!-- entities table -->
-            <div class="col-md-4">
-                <table>
-                    <?php
-                    foreach($entityList as $item){
+            <table id="entitiesTable">
 
-                    ?>
-                    <tr>
-                       <?php
-                           $item->createTableRow();
-
-                        ?>
-                    </tr>
-                    <?php
-                    }
-                    ?>
-                </table>
-            </div>
+                <?php
+                ucfirst($_GET["entity"])::createTableHeader();
+                foreach ($entityList as $item) {
+                    $item->createTableRow();
+                }
+                ?>
+            </table>
         <?php
         } else {
         }

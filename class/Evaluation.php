@@ -6,6 +6,7 @@ class Evaluation extends CollegeEntity
     private $code_evaluation;
     private $nom_evaluation;
     private $code_cour_evaluation;
+    static private $attList=["code", "nom", "cour"];
 
     //---CONSTRUCT
     public function __construct(array $data)
@@ -15,7 +16,26 @@ class Evaluation extends CollegeEntity
     }
 
 
+    public static function createTableHeader(){
+      
+        echo ("<tr class='item-row-header text-center'>");
 
+         foreach(self::$attList as $att){
+            echo ("<th class='item-attribut-header' >".$att."</th>");
+         }
+
+        echo"</tr>";
+
+    }
+    public function createTableRow()
+    {
+
+        echo("<tr class='item-row' itemitemId='".$this->getCode_evaluation()."'>");
+        foreach($this as $att=>$value){
+            echo ("<td class='item-attribut' itemAttr='".$att."'>".$value."</td>");
+        }
+        echo"</tr>";
+    }
     /**
      * Get the value of code_evaluation
      */

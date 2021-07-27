@@ -1,6 +1,6 @@
 <?php
 
-class professeur extends CollegeEntity
+class Professeur extends CollegeEntity
 {
     //---ATTRIBUTS
     private $code_professeur;
@@ -11,6 +11,7 @@ class professeur extends CollegeEntity
     private $mail_professeur;
     private $telephone_professeur;
     private $date_entree_professeur;
+    private static $attList=["code" , "nom", "prenom", "naissance", "adresse", "mail", "tél", "entrée"];
 
 
 
@@ -21,13 +22,26 @@ class professeur extends CollegeEntity
         $this->setEntityType("professeur");
     }
 
-    public function createTableRow(){
-        
-        foreach($this as $att=>$val){
-           $objectArray[$att]=$val;
-           echo ("<td class='item-attribut'>".$val."</td>");
+
+    public static function createTableHeader(){
+      
+        echo ("<tr class='item-row-header text-center'>");
+
+         foreach(self::$attList as $att){
+            echo ("<th class='item-attribut-header' >".$att."</th>");
+         }
+
+        echo"</tr>";
+
+    }
+    public function createTableRow()
+    {
+
+        echo("<tr class='item-row' itemitemId='".$this->getCode_professeur()."'>");
+        foreach($this as $att=>$value){
+            echo ("<td class='item-attribut' itemAttr='".$att."'>".$value."</td>");
         }
-       
+        echo"</tr>";
     }
     /**
      * Get the value of code_professeur

@@ -10,6 +10,8 @@ abstract class  MainManager
     private $addPreparedValues;
     private $idColumn;
 
+
+
     //----------CONSTRUCT-------------
     public function __construct($db)
     {
@@ -22,8 +24,7 @@ abstract class  MainManager
     //----------ACTIONS
     //-------------------
 
-
-
+   
     public function add($object)
     {
 

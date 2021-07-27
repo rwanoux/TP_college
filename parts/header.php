@@ -42,54 +42,17 @@
                             <a class="nav-link" href="index.php?entity=classe">classes</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="index.php?entity=evaluations">evaluations</a>
+                            <a class="nav-link" href="index.php?entity=evaluation">evaluations</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="index.php?entity=cours">cours </a>
+                            <a class="nav-link" href="index.php?entity=cour">cours </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="index.php?entity=matières">matières</a>
+                            <a class="nav-link" href="index.php?entity=matiere">matières</a>
                         </li>
 
                     </ul>
-                    <form class="d-flex text-light">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">recherchez</button>
-                        <div class="form-check px-4">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                            <label class="form-check-label" for="flexRadioDefault1">
-                                eleve
-                            </label>
-                        </div>
-                        <div class="form-check px-4">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2"
-                                checked>
-                            <label class="form-check-label" for="flexRadioDefault2">
-                                prof
-                            </label>
-                        </div>
-                        <div class="form-check px-4">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2"
-                                checked>
-                            <label class="form-check-label" for="flexRadioDefault2">
-                                matiere
-                            </label>
-                        </div>
-                        <div class="form-check px-4">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2"
-                                checked>
-                            <label class="form-check-label" for="flexRadioDefault2">
-                                classe
-                            </label>
-                        </div>
-                        <div class="form-check px-4">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2"
-                                checked>
-                            <label class="form-check-label" for="flexRadioDefault2">
-                                cour
-                            </label>
-                        </div>
-                    </form>
+                   
                 </div>
             </div>
         </nav>

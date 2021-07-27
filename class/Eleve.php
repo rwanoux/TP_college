@@ -12,6 +12,7 @@ class Eleve extends CollegeEntity
     private $telephone_eleve;
     private $code_parrain_eleve;
     private $code_classe_eleve;
+    static private $attList =["code", "nom", "prenom", "naissance", "adresse", "mail", "tél", "parrain", "classe"];
 
 
 
@@ -21,7 +22,27 @@ class Eleve extends CollegeEntity
         parent::__construct($data);
         $this->setEntityType("eleve");
     }
+    public function createTableRow()
+    {
 
+        echo("<tr itemId='".$this->getCode_eleve()."' class='item-row'>");
+        foreach($this as $att=>$value){
+            echo ("<td class='item-attribut' itemAttr='".$att."'>".$value."</td>");
+        }
+        echo"</tr>";
+    }
+
+    
+    public static function createTableHeader(){
+        echo ("<tr class='item-row-header text-center'>");
+
+         foreach(self::$attList as $att){
+            echo ("<th class='item-attribut-header' >".$att."</th>");
+         }
+
+        echo"</tr>";
+
+    }
     /**
      * Get the value of code_eleve
      */

@@ -10,10 +10,38 @@ header nav {
     background-color: rgba(0, 0, 0, 0.699);
 }
 
+tr.item-row:nth-child(odd) {
+    background-color: rgba(128, 128, 128, 0.274);
+}
+
+tr.item-row {
+    transition: all ease-in-out 0.3s;
+    cursor: pointer;
+}
+
+tr.item-row:hover {
+    transform: scale(1.02);
+    background-color: rgba(0, 0, 0, 0.596);
+}
+
 td.item-attribut {
     padding: 5px;
-    border-right: 1px solid gray;
-    border-bottom: 2px solid gray;
     text-align: center;
     white-space: nowrap;
+    box-shadow: 0px 0px 5px 3px rgba(114, 255, 236, 0.116) inset;
+}
+
+td.item-attribut:nth-child(odd) {
+    background-color: rgba(55, 56, 71, 0.274);
+}
+
+td.item-attribut:nth-child(even) {
+    background-color: rgba(65, 48, 48, 0.274);
+}
+
+tr.item-row-header {
+    background-color: rgb(230, 230, 230);
+    color: black;
+    position: sticky;
+    top: 0vh;
 }
