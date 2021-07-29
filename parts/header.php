@@ -22,8 +22,8 @@
 
         <nav class="navbar navbar-expand-lg navbar-dark py-3">
             <div class="container-fluid">
-                <h1> <a class="navbar-brand" href="index.php">Bienvenu au college</a></h1>
-
+                <h1 class="px-3"> <a  href="index.php">Bienvenu au college</a></h1>
+                <h3 class="ps-5">listes globales</h3>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
