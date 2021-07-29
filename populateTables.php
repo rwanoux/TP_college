@@ -141,22 +141,65 @@ function createMail($nom, $prenom, $provider)
 //         $eleveManager->add($eleveTest);
 //     }
 // }
-$allEleves=$eleveManager->getAll();
-$allParain=[];
-foreach ($eleveManager->getAll() as $eleve) {
-    $parrain= $allEleves[array_rand($allEleves, 1)];
-    echo"<br>";
-    echo"*****parrain//";
-    var_dump($parrain->getCode_eleve());
-    echo"<br>";
-    echo"***********";
-    while (array_search($parrain->getCode_eleve(), $allParain) != false && substr($parrain->getCode_classe_eleve(),0,1)<substr($eleve->getCode_classe_eleve(),0,1)){
-        $parrain = $allEleves[array_rand($allEleves, 1)];
-    } ;
-    array_push($allParain, $parrain->getCode_eleve());
-    $eleve->setCode_parrain_eleve($parrain->getCode_eleve());
-    print_r($eleve);
-    echo ("<br>");
-    $eleveManager->update($eleve, ["code_parrain_eleve"=>$eleve->getCode_parrain_eleve()]);
-   
+
+/*-----------------
+assign parrain eleve
+ --------------------*/
+
+// $allEleves=$eleveManager->getAll();
+// $allParain=[];
+// foreach ($eleveManager->getAll() as $eleve) {
+//     $parrain= $allEleves[array_rand($allEleves, 1)];
+//     echo"<br>";
+//     echo"*****parrain//";
+//     var_dump($parrain->getCode_eleve());
+//     echo"<br>";
+//     echo"***********";
+//     while (array_search($parrain->getCode_eleve(), $allParain) != false && substr($parrain->getCode_classe_eleve(),0,1)<substr($eleve->getCode_classe_eleve(),0,1)){
+//         $parrain = $allEleves[array_rand($allEleves, 1)];
+//     } ;
+//     array_push($allParain, $parrain->getCode_eleve());
+//     $eleve->setCode_parrain_eleve($parrain->getCode_eleve());
+//     print_r($eleve);
+//     echo ("<br>");
+//     $eleveManager->update($eleve, ["code_parrain_eleve"=>$eleve->getCode_parrain_eleve()]);
+
+// }
+/*-----------------
+créa asso prof matière
+ --------------------
+
+$profList = $professeurManager->getAll();
+$matiereList = $matiereManager->getAll();
+
+foreach ($profList as $prof) {
+    $perct = random_int(1, 100);
+    echo ("<br>*********" . $perct . "//" . $prof->getCode_professeur() . "*****************<br>");
+    switch (true) {
+        case ($perct < 60):
+            $mat = [];
+            array_push($mat, $matiereList[array_rand($matiereList, 1)]);;
+            break;
+        case ($perct >= 60 && $perct < 85):
+            $mat = [];
+            foreach (array_rand($matiereList, 2) as $index) {
+                array_push($mat, $matiereList[$index]);
+            };
+            break;
+        case ($perct >= 85):
+            $mat = [];
+            foreach (array_rand($matiereList, 3) as $index) {
+                array_push($mat, $matiereList[$index]);
+            };
+            break;
+    }
+
+
+    foreach ($mat as $m) {
+        echo ("<br>--------------<br>");
+        print_r($m);
+        echo ("<br>--------------<br>");
+        $professeurManager->assignMatiere($prof->getCode_professeur(), $m->getCode_matiere());
+    }
 }
+*/

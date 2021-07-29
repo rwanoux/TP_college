@@ -1,5 +1,5 @@
 <?php
-
+namespace entities;
 class matiere extends CollegeEntity
 {
     private $code_matiere;

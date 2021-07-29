@@ -1,4 +1,8 @@
 <?php
+namespace entities;
+
+use managers\MatiereManager;
+use PDO;
 
 class Professeur extends CollegeEntity
 {
@@ -11,7 +15,7 @@ class Professeur extends CollegeEntity
     private $mail_professeur;
     private $telephone_professeur;
     private $date_entree_professeur;
-    private static $attList=["code" , "nom", "prenom", "naissance", "adresse", "mail", "tél", "entrée"];
+    private static $attList = ["code", "nom", "prenom", "naissance", "adresse", "mail", "tél", "entrée"];
 
 
 
@@ -22,26 +26,42 @@ class Professeur extends CollegeEntity
         $this->setEntityType("professeur");
     }
 
+    //creation d'elementss html
+    public static function createTableHeader()
+    {
 
-    public static function createTableHeader(){
-      
         echo ("<tr class='item-row-header text-center'>");
 
-         foreach(self::$attList as $att){
-            echo ("<th class='item-attribut-header' >".$att."</th>");
-         }
+        foreach (self::$attList as $att) {
+            echo ("<th class='item-attribut-header' >" . $att . "</th>");
+        }
 
-        echo"</tr>";
-
+        echo "</tr>";
     }
     public function createTableRow()
     {
 
-        echo("<tr class='item-row' itemitemId='".$this->getCode_professeur()."'>");
-        foreach($this as $att=>$value){
-            echo ("<td class='item-attribut' itemAttr='".$att."'>".$value."</td>");
+        echo ("<tr class='item-row' itemitemId='" . $this->getCode_professeur() . "'>");
+        foreach ($this as $att => $value) {
+            echo ("<td class='item-attribut' itemAttr='" . $att . "'>" . $value . "</td>");
         }
-        echo"</tr>";
+        echo "</tr>";
+    }
+    //récuperer les matieres enseignées
+
+    public function getMatieres()
+    {
+        $req = $this->manager->getDb()->query(
+            "SELECT * FROM asso_prof_matiere 
+        WHERE code_prof_asso_prof_matiere = '" . $this->code_professeur . "' "
+        );
+        //l'array d'objet retournés
+        $matiereManager=new MatiereManager();
+        $matieres = [];
+        while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
+            array_push($matieres, $matiereManager->getById($data["code_matiere_asso_prof_matiere"]));
+        }
+        return $matieres;
     }
     /**
      * Get the value of code_professeur

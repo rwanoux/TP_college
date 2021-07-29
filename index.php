@@ -1,12 +1,23 @@
 <?php
-error_reporting(E_ALL);
 ini_set("display_errors", 1);
 require('vendor/autoload.php');
-//import connexion
-require('class/managers/connectDataBase.php'); //pdo
 
+use managers\ClasseManager;
+use managers\courManager;
+use managers\EleveManager;
+use managers\evaluationManager;
+use managers\MatiereManager;
+use managers\ProfesseurManager;
+
+error_reporting(E_ALL);
+
+//import connexion
+//require('class/managers/connectDataBase.php'); //pdo
+/*
 //managers class
 require('class/managers/MainManager.php');
+require('class/managers/matiereManager.php');
+$matiereManager = new MatiereManager($pdo);
 require('class/managers/ProfesseurManager.php');
 $professeurManager = new ProfesseurManager($pdo);
 require('class/managers/EleveManager.php');
@@ -17,8 +28,7 @@ require('class/managers/EvaluationManager.php');
 $evaluationManager = new EvaluationManager($pdo);
 require('class/managers/CourManager.php');
 $courManager = new CourManager($pdo);
-require('class/managers/matiereManager.php');
-$matiereManager = new MatiereManager($pdo);
+
 
 
 
@@ -30,6 +40,15 @@ require('class/Classe.php');
 require('class/Evaluation.php');
 require('class/Cour.php');
 require('class/Matiere.php');
+*/
+
+//----header html
+$matiereManager = new MatiereManager();
+$professeurManager = new ProfesseurManager();
+$eleveManager = new EleveManager();
+$courManager = new courManager();
+$evaluationManager = new evaluationManager();
+
 
 
 
@@ -44,9 +63,9 @@ require_once('parts/header.php');
         <?php if (isset($_GET["entity"])) { ?>
             <form class="d-flex text-light m-3">
                 <h3 class="mx-3">filtre</h3>
-            
+
                 <input class="form-control me-2" id="researchInput" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-secondary mx-3" id ="resetFilter">vider le filtre</button>
+                <button class="btn btn-secondary mx-3" id="resetFilter">vider le filtre</button>
             </form>
         <?php } ?>
 
@@ -54,7 +73,7 @@ require_once('parts/header.php');
         <?php
         $entityList = [];
         //----------uncomment for populate
-        //include('populateTables.php');
+        include('populateTables.php');
 
 
         // switch on entity type
@@ -92,6 +111,12 @@ require_once('parts/header.php');
                 ucfirst($_GET["entity"])::createTableHeader();
                 foreach ($entityList as $item) {
                     $item->createTableRow();
+                    if ($item->getEntityType() == "professeur") {
+                        $matieres = $item->getMatieres();
+                        foreach ($matieres as $mat) {
+                            echo ("<br>" . $mat->getNom_matiere());
+                        }
+                    }
                 }
                 ?>
             </table>

@@ -8,11 +8,9 @@
             "": "class/"
         }
     },
-    "authors": [
-        {
-            "name": "Erwan LEMAIRE",
-            "email": "erwan_lemaire@yahoo.fr"
-        }
-    ],
+    "authors": [{
+        "name": "Erwan LEMAIRE",
+        "email": "erwan_lemaire@yahoo.fr"
+    }],
     "require": {}
 }
