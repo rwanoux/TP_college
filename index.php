@@ -7,6 +7,7 @@ require('class/managers/connectDataBase.php'); //pdo
 
 //managers class
 require('class/managers/MainManager.php');
+$mainManager = new MainManager($pdo);
 require('class/managers/ProfesseurManager.php');
 $professeurManager = new ProfesseurManager($pdo);
 require('class/managers/EleveManager.php');
@@ -32,6 +33,8 @@ require('class/entities/Evaluation.php');
 require('class/entities/Matiere.php');
 
 
+require('utils/functions.php');
+
 
 require_once('parts/header.php');
 ?>
@@ -40,14 +43,14 @@ require_once('parts/header.php');
 
 <!---------MAGIC HERE------------------>
 <div class="container">
-<?php if (isset($_GET["entity"])) { ?>
-            <form class="d-flex text-light m-3">
-                <h3 class="mx-3">filtre</h3>
+    <?php if (isset($_GET["entity"])) { ?>
+        <form class="d-flex text-light m-3">
+            <h3 class="mx-3">filtre</h3>
 
-                <input class="form-control me-2" id="researchInput" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-secondary mx-3" id="resetFilter">vider le filtre</button>
-            </form>
-        <?php } ?>
+            <input class="form-control me-2" id="researchInput" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-secondary mx-3" id="resetFilter">vider le filtre</button>
+        </form>
+    <?php } ?>
     <div class="row">
 
 
@@ -56,6 +59,9 @@ require_once('parts/header.php');
         //----------uncomment for populate
         //include('populateTables.php');
 
+/*----------------------
+tableau général des entités
+--------------------------*/
 
         // switch on entity type
         if (isset($_GET["entity"])) {
@@ -92,18 +98,35 @@ require_once('parts/header.php');
                 ucfirst($_GET["entity"])::createTableHeader();
                 foreach ($entityList as $item) {
                     $item->createTableRow();
-                    
+                    // if ($item->getEntityType() == "professeur") {
+                    //     $matieres = getMatieresFromProf($item, $mainManager);
+                    //     foreach ($matieres as $mat) {
+                    //         echo ("<tr class='test'>" . $mat . "</tr>");
+                    //     }
+                    // }
                 }
                 ?>
             </table>
+    </div>
+<?php
+        } else if(isset($_GET["entityType"])&& isset($_GET["entityId"])) {
+            ?>
+            <div class="col">
+                yeah
             </div>
-        <?php
-        } else {
+            <?php
+        }
+        else {
+?>
+
+
+<img src="http://www.arto-architectes.fr/wp-content/uploads/2017/06/ATAUB_CAUDEBEC-EN-CAUX_college.jpg" width="2000"/>
+<?php
         }
 
-        ?>
+?>
 
-    </div>
+</div>
 </div>
 <!--------------------------->
 

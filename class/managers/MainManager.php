@@ -1,6 +1,6 @@
 <?php
 
-abstract class  MainManager
+ class  MainManager
 {
     //---------ATTRIBUTS-----------------
     private $db; //correspondra à l'instance PDO pour la connexion à la BDD

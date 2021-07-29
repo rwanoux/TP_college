@@ -18,7 +18,7 @@ class matiere extends CollegeEntity
     public function createTableRow()
     {
 
-        echo("<tr itemId='".$this->getCode_matiere()."' class='item-row'>");
+        echo("<tr itemId='".$this->getCode_matiere()."' itemType='".$this->getEntityType()."' class='item-row'>");
         foreach($this as $att=>$value){
             echo ("<td class='item-attribut' itemAttr='".$att."'>".$value."</td>");
         }

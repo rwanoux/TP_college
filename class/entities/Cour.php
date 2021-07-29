@@ -18,7 +18,7 @@ class Cour extends CollegeEntity
     public function createTableRow()
     {
 
-        echo("<tr itemId='".$this->getCode_cour()."' class='item-row'>");
+        echo("<tr itemId='".$this->getCode_cour(). "' itemType='".$this->getEntityType()."' class='item-row'>");
         foreach($this as $att=>$value){
             echo ("<td class='item-attribut' itemAttr='".$att."'>".$value."</td>");
         }

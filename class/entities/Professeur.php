@@ -24,6 +24,10 @@ class Professeur extends CollegeEntity
     {
         parent::__construct($data);
         $this->setEntityType("professeur");
+       
+
+
+
     }
 
     //creation d'elementss html
@@ -41,28 +45,14 @@ class Professeur extends CollegeEntity
     public function createTableRow()
     {
 
-        echo ("<tr class='item-row' itemitemId='" . $this->getCode_professeur() . "'>");
+        echo ("<tr class='item-row' itemId='" . $this->getCode_professeur() . "' itemType='".$this->getEntityType()."'>");
         foreach ($this as $att => $value) {
             echo ("<td class='item-attribut' itemAttr='" . $att . "'>" . $value . "</td>");
         }
         echo "</tr>";
     }
-    //récuperer les matieres enseignées
+  
 
-    // public function getMatieres()
-    // {
-    //     $req = $this->manager->getDb()->query(
-    //         "SELECT * FROM asso_prof_matiere 
-    //     WHERE code_prof_asso_prof_matiere = '" . $this->code_professeur . "' "
-    //     );
-    //     //l'array d'objet retournés
-    //     $matiereManager=new MatiereManager();
-    //     $matieres = [];
-    //     while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
-    //         array_push($matieres, $matiereManager->getById($data["code_matiere_asso_prof_matiere"]));
-    //     }
-    //     return $matieres;
-    // }
     /**
      * Get the value of code_professeur
      */
@@ -219,6 +209,26 @@ class Professeur extends CollegeEntity
     public function setDate_entree_professeur($date_entree_professeur)
     {
         $this->date_entree_professeur = $date_entree_professeur;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of db
+     */
+    public function getDb()
+    {
+        return $this->db;
+    }
+
+    /**
+     * Set the value of db
+     *
+     * @return  self
+     */
+    public function setDb($db)
+    {
+        $this->db = $db;
 
         return $this;
     }
