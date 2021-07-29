@@ -1,8 +1,8 @@
 <?php
-namespace entities;
 
-use managers\MatiereManager;
-use PDO;
+
+
+
 
 class Professeur extends CollegeEntity
 {

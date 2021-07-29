@@ -1,23 +1,18 @@
 <?php
-namespace managers;
-
-use PDO;
 
 abstract class  MainManager
 {
     //---------ATTRIBUTS-----------------
+    private $db; //correspondra à l'instance PDO pour la connexion à la BDD
     private $table; //table cible dans la base de donnée
     private $entity; //type d'objet cible
     private $addCol;
     private $addPreparedValues;
     private $idColumn;
 
-
-
     //----------CONSTRUCT-------------
-    public function __construct()
+    public function __construct($db)
     {
-        $db=new Db();
         $this->setDb($db);
         $this->setEntity(substr(ucfirst($this->getTable()), 0, -1));
     }
@@ -27,7 +22,8 @@ abstract class  MainManager
     //----------ACTIONS
     //-------------------
 
-   
+
+
     public function add($object)
     {
 

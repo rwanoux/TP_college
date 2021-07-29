@@ -1,5 +1,5 @@
 <?php
-namespace entities;
+
 class Classe extends CollegeEntity
 {
     //---ATTRIBUTS

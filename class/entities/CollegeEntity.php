@@ -1,5 +1,5 @@
 <?php
-namespace entities;
+
 
 abstract class CollegeEntity
 {
