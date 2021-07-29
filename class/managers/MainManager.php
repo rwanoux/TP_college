@@ -81,8 +81,9 @@
             WHERE " . $this->getIdColumn() . " = '" . $id . "'"
         );
         $data = $req->fetch(PDO::FETCH_ASSOC);
+        
         //selon les données l'objet retourné serra de type different
-
+        var_dump($data);
         //récupérer le nom de la class
         $type = $this->getEntity();
         $type = ucfirst($type);
@@ -167,7 +168,7 @@
             SET " . $updateString .
                 "WHERE " . $this->getIdColumn() . "='" . $id . "'"
         );
-        var_dump($req);
+   
         //on execute la requete
         $req->execute();
     }

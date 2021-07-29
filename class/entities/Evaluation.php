@@ -30,7 +30,7 @@ class Evaluation extends CollegeEntity
     public function createTableRow()
     {
 
-        echo("<tr class='item-row' itemitemId='".$this->getCode_evaluation(). "' itemType='".$this->getEntityType()."'>");
+        echo("<tr class='item-row' itemId='".$this->getCode_evaluation(). "' itemType='".$this->getEntityType()."'>");
         foreach($this as $att=>$value){
             echo ("<td class='item-attribut' itemAttr='".$att."'>".$value."</td>");
         }

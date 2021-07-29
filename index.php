@@ -110,6 +110,33 @@ tableau général des entités
     </div>
 <?php
         } else if(isset($_GET["entityType"])&& isset($_GET["entityId"])) {
+            $class=ucfirst($_GET["entityType"]);
+            switch($_GET["entityType"]){
+                case "professeur":
+                    $focusedEntity = $professeurManager->getById($_GET["entityId"]);
+                    break;
+                case "eleve":
+                    $focusedEntity = $eleveManager->getById($_GET["entityId"]);
+                    break;
+                case "classe":
+                    $focusedEntity = $classeManager->getById($_GET["entityId"]);
+                    break;
+                case "evaluation":
+                    $focusedEntity = $evaluationManager->getById($_GET["entityId"]);
+
+                    break;
+                case "cour":
+                    $focusedEntity = $courManager->getById($_GET["entityId"]);
+
+                    break;
+                case "matiere":
+                    $focusedEntity = $matiereManager->getById($_GET["entityId"]);
+
+                    break;
+            }
+
+            var_dump($focusedEntity)
+
             ?>
             <div class="col">
                 yeah

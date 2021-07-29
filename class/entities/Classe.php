@@ -30,7 +30,7 @@ class Classe extends CollegeEntity
     public function createTableRow()
     {
 
-        echo("<tr class='item-row' itemitemId='".$this->getCode_classe(). "' itemType='".$this->getEntityType()."'>");
+        echo("<tr class='item-row' itemId='".$this->getCode_classe(). "' itemType='".$this->getEntityType()."'>");
         foreach($this as $att=>$value){
             echo ("<td class='item-attribut' itemAttr='".$att."'>".$value."</td>");
         }
