@@ -49,20 +49,20 @@ class Professeur extends CollegeEntity
     }
     //récuperer les matieres enseignées
 
-    public function getMatieres()
-    {
-        $req = $this->manager->getDb()->query(
-            "SELECT * FROM asso_prof_matiere 
-        WHERE code_prof_asso_prof_matiere = '" . $this->code_professeur . "' "
-        );
-        //l'array d'objet retournés
-        $matiereManager=new MatiereManager();
-        $matieres = [];
-        while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
-            array_push($matieres, $matiereManager->getById($data["code_matiere_asso_prof_matiere"]));
-        }
-        return $matieres;
-    }
+    // public function getMatieres()
+    // {
+    //     $req = $this->manager->getDb()->query(
+    //         "SELECT * FROM asso_prof_matiere 
+    //     WHERE code_prof_asso_prof_matiere = '" . $this->code_professeur . "' "
+    //     );
+    //     //l'array d'objet retournés
+    //     $matiereManager=new MatiereManager();
+    //     $matieres = [];
+    //     while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
+    //         array_push($matieres, $matiereManager->getById($data["code_matiere_asso_prof_matiere"]));
+    //     }
+    //     return $matieres;
+    // }
     /**
      * Get the value of code_professeur
      */
