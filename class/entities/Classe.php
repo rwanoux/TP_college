@@ -6,6 +6,7 @@ class Classe extends CollegeEntity
     private $code_classe;
     private $nom_classe;
     private $code_prof_ref_classe;
+    private $niveau_classe;
     static private $attList=["code", "nom", "prof referent" ];
 
 
@@ -72,6 +73,25 @@ class Classe extends CollegeEntity
     public function setNom_classe($nom_classe)
     {
         $this->nom_classe = $nom_classe;
+
+        return $this;
+    }
+    /**
+     * Get the value of nom_classe
+     */
+    public function getNiveau_classe()
+    {
+        return $this->niveau_classe;
+    }
+
+    /**
+     * Set the value of Niveau_classe
+     *
+     * @return  self
+     */
+    public function setNiveau_classe($niveau_classe)
+    {
+        $this->niveau_classe = $niveau_classe;
 
         return $this;
     }

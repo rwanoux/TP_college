@@ -57,7 +57,7 @@ require_once('parts/header.php');
         <?php
         $entityList = [];
         //----------uncomment for populate
-        //include('populateTables.php');
+       // include('populateTables.php');
 
 /*----------------------
 tableau général des entités
@@ -113,35 +113,41 @@ tableau général des entités
             $class=ucfirst($_GET["entityType"]);
             switch($_GET["entityType"]){
                 case "professeur":
-                    $focusedEntity = $professeurManager->getById($_GET["entityId"]);
+                    $entity = $professeurManager->getById($_GET["entityId"]);
+                    include ("parts/interfaceProfesseur.php");
                     break;
                 case "eleve":
-                    $focusedEntity = $eleveManager->getById($_GET["entityId"]);
+                    $entity = $eleveManager->getById($_GET["entityId"]);
+                    include ("parts/interfaceEleve.php");
+
                     break;
                 case "classe":
-                    $focusedEntity = $classeManager->getById($_GET["entityId"]);
+                    $entity = $classeManager->getById($_GET["entityId"]);
+                    include ("parts/interfaceClasse.php");
+
                     break;
                 case "evaluation":
-                    $focusedEntity = $evaluationManager->getById($_GET["entityId"]);
+                    $entity = $evaluationManager->getById($_GET["entityId"]);
+                    include ("parts/interfaceEvaluation.php");
 
                     break;
                 case "cour":
-                    $focusedEntity = $courManager->getById($_GET["entityId"]);
+                    $entity = $courManager->getById($_GET["entityId"]);
+                    include ("parts/interfaceCour.php");
+
 
                     break;
                 case "matiere":
-                    $focusedEntity = $matiereManager->getById($_GET["entityId"]);
+                    $entity = $matiereManager->getById($_GET["entityId"]);
+                    include ("parts/interfaceMatiere.php");
+
 
                     break;
             }
 
-            var_dump($focusedEntity)
+            var_dump($entity);
 
-            ?>
-            <div class="col">
-                yeah
-            </div>
-            <?php
+           
         }
         else {
 ?>

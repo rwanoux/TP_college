@@ -203,3 +203,18 @@ foreach ($profList as $prof) {
     }
 }
 */
+
+$courList = $courManager->getAll();
+
+
+foreach ($courList as $cour) {
+  
+   $niv= random_int(3, 6);
+    $req = $courManager->getDb()->prepare(
+    "UPDATE  cours  
+    SET niveau_cour='".$niv."' WHERE code_cour='" . $cour->getCode_cour() . "'"
+);
+
+//on execute la requete
+//$req->execute();
+}
