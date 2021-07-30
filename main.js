@@ -62,3 +62,29 @@ function filter(strg) {
 
     }
 }
+
+
+
+let tabsNav = document.getElementsByClassName('tabNav');
+let tabsContent = document.getElementsByClassName('tab');
+
+for (let tab of tabsNav) {
+    tab.addEventListener('click', ev => {
+        let btarget;
+        btarget = ev.currentTarget.getAttribute("tabTarget")
+
+        toggleContent(btarget)
+    });
+
+
+}
+function toggleContent(target) {
+    console.log(target)
+    for (let content of tabsContent) {
+        if (content.getAttribute("tabName") == target) {
+            content.classList.add('active')
+        } else {
+            content.classList.remove('active')
+        }
+    }
+}
