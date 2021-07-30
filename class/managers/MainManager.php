@@ -49,14 +49,10 @@
                 }
             }
         }
-        /*
-        echo "<br>----------------------";
-        print_r($req);
-        echo "<br>----------------------";
-        */
+       
         //on execute la requete
         $req->execute();
-        print_r($req->errorInfo());
+       // print_r($req->errorInfo());
     }
 
 
@@ -83,7 +79,6 @@
         $data = $req->fetch(PDO::FETCH_ASSOC);
         
         //selon les données l'objet retourné serra de type different
-        var_dump($data);
         //récupérer le nom de la class
         $type = $this->getEntity();
         $type = ucfirst($type);

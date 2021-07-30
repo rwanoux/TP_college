@@ -52,7 +52,13 @@ class Professeur extends CollegeEntity
         echo "</tr>";
     }
   
-
+    public function getAge_professeur(){
+        $age = intval(date('Y')) - intval(substr($this->date_naissance_professeur,0,4)); 
+        if (date('md') < date('md', strtotime($this->date_naissance_professeur))) { 
+            return $age - 1; 
+        } 
+        return $age; 
+    }
     /**
      * Get the value of code_professeur
      */

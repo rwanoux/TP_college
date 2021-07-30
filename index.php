@@ -44,28 +44,38 @@ require_once('parts/header.php');
 <!---------MAGIC HERE------------------>
 <div class="container">
     <?php if (isset($_GET["entity"])) { ?>
-        <form class="d-flex text-light m-3">
-            <h3 class="mx-3">filtre</h3>
+    <form class="d-flex text-light m-3">
+        <h3 class="mx-3">filtre</h3>
 
-            <input class="form-control me-2" id="researchInput" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-secondary mx-3" id="resetFilter">vider le filtre</button>
-        </form>
+        <input
+            class="form-control me-2"
+            id="researchInput"
+            type="search"
+            placeholder="Search"
+            aria-label="Search"
+        >
+        <button
+            class="btn btn-secondary mx-3"
+            id="resetFilter"
+        >vider le filtre</button>
+    </form>
     <?php } ?>
     <div class="row">
 
 
-        <?php
-        $entityList = [];
+        <?php 
         //----------uncomment for populate
        // include('populateTables.php');
 
-/*----------------------
-tableau général des entités
---------------------------*/
+
+       
+        /*----------------------
+        tableau général des entités
+        --------------------------*/
 
         // switch on entity type
         if (isset($_GET["entity"])) {
-
+        $entityList = [];//decla list d'entity
             switch ($_GET["entity"]) {
                 case "professeur":
                     $entityList = $professeurManager->getAll();
@@ -91,30 +101,35 @@ tableau général des entités
             }
 
         ?>
-            <!-- entities table -->
-            <table id="entitiesTable">
+        <!-- entities table -->
+        <table id="entitiesTable">
 
-                <?php
+            <?php
                 ucfirst($_GET["entity"])::createTableHeader();
                 foreach ($entityList as $item) {
                     $item->createTableRow();
-                    // if ($item->getEntityType() == "professeur") {
-                    //     $matieres = getMatieresFromProf($item, $mainManager);
-                    //     foreach ($matieres as $mat) {
-                    //         echo ("<tr class='test'>" . $mat . "</tr>");
-                    //     }
-                    // }
                 }
                 ?>
-            </table>
+        </table>
+        <!-- FIN entities table -->
+
     </div>
-<?php
+
+    <!-- details entity -->
+    <?php
+    /*----------------------
+        details des entités
+        --------------------------*/
+   
+  
         } else if(isset($_GET["entityType"])&& isset($_GET["entityId"])) {
             $class=ucfirst($_GET["entityType"]);
             switch($_GET["entityType"]){
                 case "professeur":
                     $entity = $professeurManager->getById($_GET["entityId"]);
-                    include ("parts/interfaceProfesseur.php");
+                   
+                    
+                    include ("parts/interfaceProfesseur.php"); 
                     break;
                 case "eleve":
                     $entity = $eleveManager->getById($_GET["entityId"]);
@@ -145,22 +160,28 @@ tableau général des entités
                     break;
             }
 
-            var_dump($entity);
 
            
         }
         else {
 ?>
+    <!-- FIN details entity -->
 
 
-<img src="http://www.arto-architectes.fr/wp-content/uploads/2017/06/ATAUB_CAUDEBEC-EN-CAUX_college.jpg" width="2000"/>
-<?php
+    <!-- image accueil -->
+    <img
+        src="http://www.arto-architectes.fr/wp-content/uploads/2017/06/ATAUB_CAUDEBEC-EN-CAUX_college.jpg"
+        width="2000"
+    />
+    <!-- FIN image accueil -->
+
+    <?php
         }
 
 ?>
 
 </div>
-</div>
+
 <!--------------------------->
 
 
