@@ -181,7 +181,7 @@ require_once('parts/header.php');
 ?>
 
 </div>
-
+</div>
 <!--------------------------->
 
 
