@@ -65,7 +65,7 @@ require_once('parts/header.php');
 
         <?php 
         //----------uncomment for populate
-       // include('populateTables.php');
+       include('populateTables.php');
 
 
        

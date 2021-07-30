@@ -202,19 +202,93 @@ foreach ($profList as $prof) {
         $professeurManager->assignMatiere($prof->getCode_professeur(), $m->getCode_matiere());
     }
 }
+
+
+
+$classeList = $classeManager->getAll();
+$courList=$courManager->getAll();
+$main=$mainManager;
+foreach ($classeList as $classe) {
+   
+    $niv=$classe->getNiveau_classe(); 
+    foreach($courList as $cour){
+       
+        if ($cour->getNiveau_cour()===$classe->getNiveau_classe()){
+            $matiere=$matiereManager->getById($cour->getCode_matiere_cour());
+            $reqProf=$main->getDb()->query("
+            SELECT * FROM asso_prof_matiere 
+            WHERE code_matiere_asso_prof_matiere='".$matiere->getCode_matiere()."'");
+            $profList=$reqProf->fetchAll(PDO::FETCH_ASSOC);
+            $profAsso=$profList[array_rand($profList,1)];
+            $prof=$professeurManager->getById($profAsso["code_prof_asso_prof_matiere"]);
+            
+
+            $req=$main->getDB()->prepare("
+            INSERT INTO asso_prof_classe_cours 
+            (code_classe_asso_prof_classe_cours, code_cours_asso_prof_classe_cours,code_prof_asso_prof_classe_cours)
+            VALUES(:classe,:cour,:prof)
+            ");
+            $req->bindValue(":classe",intval($classe->getCode_classe()), PDO::PARAM_STR);
+            $req->bindValue(":cour",intval($cour->getCode_cour()), PDO::PARAM_STR);
+            $req->bindValue(":prof",intval($prof->getCode_professeur()), PDO::PARAM_STR);
+            $req->execute();
+            print_r($req->errorInfo());
+
+        }
+       
+    }
+
+
+$evaList=$evaluationManager->getAll();
+
+foreach($evaList as $eval){
+
+    $codeCour=$eval->getCode_cour_evaluation();
+    $codeEval=$eval->getCode_evaluation();
+
+    $cour=$courManager->getById($codeCour);
+   
+    $reqAsso=$mainManager->getDb()->query("SELECT * FROM asso_prof_classe_cours WHERE code_cours_asso_prof_classe_cours='".$codeCour."'");
+    $listAsso=$reqAsso->fetchAll(PDO::FETCH_ASSOC);
+    foreach($listAsso as $asso){
+        $classe=$classeManager->getById($asso["code_classe_asso_prof_classe_cours"]);
+        $prof=$professeurManager->getById($asso["code_prof_asso_prof_classe_cours"]);
+        //  echo("***********************<br>");
+        //  echo($classe->getNom_classe());
+        //  echo("<br>*****************************");
+        // echo($cour->getNom_cour());
+        //  echo("<br>*****************************");
+        // echo($prof->getNom_professeur());
+        // echo("<br>");
+        
+        $listEleve=$eleveManager->getByAttributs(["code_classe_eleve"=>$classe->getCode_classe()]);
+        foreach($listEleve as $eleve){
+                $note=random_int(0,20);
+                $req=$mainManager->getDb()->prepare("
+                INSERT INTO asso_prof_eleve_eval (note_asso_prof_eleve_eval,code_prof_asso_prof_eleve_eval,	code_eleve_asso_prof_eleve_eval,code_eval_asso_prof_eleve_eval)
+                VALUES (:note, :prof, :eleve, :eval)
+                ");
+                $req->bindValue(":note",$note, PDO::PARAM_INT);
+                    $req->bindValue(":eval",$eval->getCode_evaluation(), PDO::PARAM_INT);
+                    $req->bindValue(":prof",$prof->getCode_professeur(), PDO::PARAM_INT);
+                    $req->bindValue(":eleve",$eleve->getCode_eleve(), PDO::PARAM_INT);
+                $req->execute();
+        }
+
+    }
+
+};
+
 */
 
-$courList = $courManager->getAll();
 
+    // $req= $courManager->getDb()->query("
+    // SELECT * FROM cours
+    // WHERE  niveau_cours='".$niv."'") ;
+    // $cours=$req->fetchAll(PDO::FETCH_ASSOC);
+    // foreach($cours as $cour){
+    //     $req2=$mainManager->getDb->query("
+    //     SELECT * FROM asso_prof_matiere 
+    //     ");
 
-foreach ($courList as $cour) {
-  
-   $niv= random_int(3, 6);
-    $req = $courManager->getDb()->prepare(
-    "UPDATE  cours  
-    SET niveau_cour='".$niv."' WHERE code_cour='" . $cour->getCode_cour() . "'"
-);
-
-//on execute la requete
-//$req->execute();
-}
+    // }

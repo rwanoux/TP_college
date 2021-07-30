@@ -77,7 +77,7 @@
             WHERE " . $this->getIdColumn() . " = '" . $id . "'"
         );
         $data = $req->fetch(PDO::FETCH_ASSOC);
-        
+
         //selon les données l'objet retourné serra de type different
         //récupérer le nom de la class
         $type = $this->getEntity();

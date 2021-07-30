@@ -6,6 +6,7 @@ class Cour extends CollegeEntity
     private $code_cour;
     private $nom_cour;
     private $code_matiere_cour;
+    private $niveau_cour;
     private static  $attList=["code", "nom", "matière"];
 
 
@@ -93,6 +94,26 @@ class Cour extends CollegeEntity
     public function setCode_matiere_cour($code_matiere_cour)
     {
         $this->code_matiere_cour = $code_matiere_cour;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of niveau_cour
+     */
+    public function getNiveau_cour()
+    {
+        return $this->niveau_cour;
+    }
+
+    /**
+     * Set the value of niveau_cour
+     *
+     * @return  self
+     */
+    public function setNiveau_cour($niveau_cour)
+    {
+        $this->niveau_cour = $niveau_cour;
 
         return $this;
     }
