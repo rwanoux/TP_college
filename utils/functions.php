@@ -21,22 +21,9 @@ foreach($dataAsso as $assoRow) {
 return $matieres;
 }
 
-function getClassesFromProf(Professeur $prof, MainManager $main){
+function getClassesFromProf(Professeur $prof, $man){
 
-    $req=$main->getDb()->query('
-    SELECT * FROM asso_prof_classe_cours WHERE code_prof_asso_prof_classe_cours="'.$prof->getCode_professeur().'"
-    ');
-    $classes = [];
-    $dataAsso = $req->fetchAll(PDO::FETCH_ASSOC);
-    foreach($dataAsso as $assoRow) {
-      
-        $req=$main->getDb()->query('
-        SELECT * FROM classes WHERE code_classe="'.$assoRow["code_classe_asso_prof_classe_cours"].'"
-        ');
-        while ($dataMat = $req->fetch(PDO::FETCH_ASSOC)) {
-            $matNom=$dataMat["nom_matiere"];
-            array_push($classes, $matNom);
-        }
-    }
-    return $classes;
+   $clList=$man->getByAttributs(["code_prof_ref_classe"=>$prof->getCode_professeur()]);
+    
+    return $clList;
     }

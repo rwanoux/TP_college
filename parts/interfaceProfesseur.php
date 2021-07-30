@@ -3,19 +3,19 @@
 <div class="col-md-3">
     <ul>
         <li>
-            <a tabTarget="info">informations</a>
+            <a tabTarget="info"  class="tab">informations</a>
         </li>
         <li>
-            <a bTarget="contact">contacts</a>
+            <a bTarget="contact"  class="tab">contacts</a>
         </li>
         <li>
-            <a bTarget="ens">enseignement</a>
+            <a bTarget="ens"  class="tab">enseignement</a>
         </li>
     </ul>
 
 </div>
-<div class="col-md-9">
-    <div tabName="info">
+<div class="col-md-9"  class="tab">
+    <div tabName="info"  class="tab">
         <h5>nom</h5>
         <p>
             <?php echo($entity->getNom_professeur());?>
@@ -33,7 +33,7 @@
             <?php echo($entity->getAge_professeur());?>
         </p>
 </div>
-    <div tabName="info">
+    <div tabName="info"  class="tab">
         <h5>adresse</h5>
         <p>
             <?php echo($entity->getAdresse_professeur());?>
@@ -48,7 +48,7 @@
         </p>
         
 </div>
-    <div tabName="info">
+    <div tabName="info" class="tab">
         <h5>matieres</h5>
         <p>
             <?php foreach(getMatieresFromProf($entity,$mainManager)as $mat){
@@ -62,8 +62,8 @@
         <h5>référents de</h5>
         <p>
         <?php 
-        foreach(getMatieresFromProf($entity,$mainManager)as $mat){
-                echo($mat." ,");
+        foreach(getClassesFromProf($entity,$classeManager)as $cl){
+                echo($cl->getNom_classe()." ,");
             };?>
         </p>
         

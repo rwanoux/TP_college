@@ -50,3 +50,8 @@ tr.item-row-header {
     position: sticky;
     top: 0vh;
 }
+
+div.tab {
+    border: 2px solid white;
+    padding: 15px;
+}
