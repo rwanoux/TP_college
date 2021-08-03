@@ -70,16 +70,16 @@ let tabsContent = document.getElementsByClassName('tab');
 
 for (let tab of tabsNav) {
     tab.addEventListener('click', ev => {
-        let btarget;
-        btarget = ev.currentTarget.getAttribute("tabTarget")
+        let tabbtarget;
+        tabbtarget = ev.currentTarget.getAttribute("tabTarget")
 
-        toggleContent(btarget)
+        toggleTabContent(tabtarget)
     });
 
 
 }
-function toggleContent(target) {
-    console.log(target)
+function toggleTabContent(target) {
+    console.log(target);
     for (let content of tabsContent) {
         if (content.getAttribute("tabName") == target) {
             content.classList.add('active')

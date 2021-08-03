@@ -1,4 +1,4 @@
--populate des tables asso
--verif fonction getClassesFromProf()
--js pour tabs
--interface des entitées
+
+
+-interface des entitées : matieres eval cours classes
+-rendre visible derriere footer

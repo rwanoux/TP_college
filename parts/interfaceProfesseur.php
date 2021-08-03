@@ -15,7 +15,7 @@
     </ul>
 
 </div>
-<div class="col" class="tab">
+<div class="col" class="text-center tab">
     <div tabName="info" class="tab active">
         <h5>nom</h5>
         <p>
@@ -52,8 +52,8 @@
     <div tabName="ens" class="tab">
         <h5>matieres</h5>
         <p>
-            <?php foreach (getMatieresFromProf($entity, $mainManager) as $mat) {
-                echo ($mat . " ,");
+            <?php foreach ($professeurManager->getMatieresFromProf($entity) as $mat) {
+                echo ($mat->getNom_matiere() . " ,");
             }; ?>
         </p>
         <h5>dates entrée en fonction</h5>
@@ -63,7 +63,7 @@
         <h5>référents de</h5>
         <p>
             <?php
-            foreach (getClassesFromProf($entity, $classeManager) as $cl) {
+            foreach ($professeurManager->getClassesRef($entity) as $cl) {
                 echo ($cl->getNom_classe() . " ,");
             }; ?>
         </p>
