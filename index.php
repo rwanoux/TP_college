@@ -115,38 +115,39 @@ require_once('parts/header.php');
 
 
     } else if (isset($_GET["entityType"]) && isset($_GET["entityId"])) {
-        $class = ucfirst($_GET["entityType"]);
-        switch ($_GET["entityType"]) {
-            case "professeur":
-                $entity = $professeurManager->getById($_GET["entityId"]);
-                include("parts/interfaceProfesseur.php");
-                break;
-            case "eleve":
-                $entity = $eleveManager->getById($_GET["entityId"]);
-                include("parts/interfaceEleve.php");
-
-                break;
-            case "classe":
-                $entity = $classeManager->getById($_GET["entityId"]);
-                include("parts/interfaceClasse.php");
-
-                break;
-            case "evaluation":
-                $entity = $evaluationManager->getById($_GET["entityId"]);
-                include("parts/interfaceEvaluation.php");
-
-                break;
-            case "cour":
-                $entity = $courManager->getById($_GET["entityId"]);
-                include("parts/interfaceCour.php");
-
-
-                break;
-            case "matiere":
-                $entity = $matiereManager->getById($_GET["entityId"]);
-                include("parts/interfaceMatiere.php");
-                break;
-        }
+    ?>
+    <div class="row">
+        <?php
+            $class = ucfirst($_GET["entityType"]);
+            switch ($_GET["entityType"]) {
+                case "professeur":
+                    $entity = $professeurManager->getById($_GET["entityId"]);
+                    include("parts/interfaceProfesseur.php");
+                    break;
+                case "eleve":
+                    $entity = $eleveManager->getById($_GET["entityId"]);
+                    include("parts/interfaceEleve.php");
+                    break;
+                case "classe":
+                    $entity = $classeManager->getById($_GET["entityId"]);
+                    include("parts/interfaceClasse.php");
+                    break;
+                case "evaluation":
+                    $entity = $evaluationManager->getById($_GET["entityId"]);
+                    include("parts/interfaceEvaluation.php");
+                    break;
+                case "matiere":
+                    $entity = $matiereManager->getById($_GET["entityId"]);
+                    include("parts/interfaceMatiere.php");
+                    break;
+                case "cour":
+                    $entity = $courManager->getById($_GET["entityId"]);
+                    include("parts/interfaceCour.php");
+                    break;
+            }
+            ?>
+    </div>
+    <?php
     } else {
     ?>
     <!-- FIN details entity -->

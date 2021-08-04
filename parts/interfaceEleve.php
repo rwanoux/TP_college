@@ -1,4 +1,4 @@
-<h2><?php echo ($entity->getPrenom_eleve() . " " . $entity->getNom_eleve() . " code:" . $entity->getCode_eleve()) ?>
+<h2><?php echo ($entity->getPrenom_eleve() . " " . $entity->getNom_eleve() . " / code : " . $entity->getCode_eleve()) ?>
 </h2>
 <div>
     <ul class="d-md-flex-col d-flex flex-col justify-content-around">

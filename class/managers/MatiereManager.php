@@ -45,7 +45,7 @@ class MatiereManager extends MainManager
         $rowCour = $req->fetchAll(PDO::FETCH_ASSOC);
         foreach ($rowCour as $row) {
 
-            $cour = new Cour($rowCour);
+            $cour = new Cour($row);
             array_push($cours, $cour);
         }
         return $cours;

@@ -1,4 +1,4 @@
 
 
--interface des entitées : matieres eval cours classes
--rendre visible derriere footer
+--dans interface matiere je perds include footer!!!!!!!
+-interface des entitées :  eval cours classes

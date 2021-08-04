@@ -70,10 +70,10 @@ let tabsContent = document.getElementsByClassName('tab');
 
 for (let tab of tabsNav) {
     tab.addEventListener('click', ev => {
-        let tabbtarget;
-        tabbtarget = ev.currentTarget.getAttribute("tabTarget")
+        let tabtarget;
+        tabtarget = ev.currentTarget.getAttribute("tabTarget")
 
-        toggleTabContent(tabtarget)
+        toggleTabContent(tabtarget);
     });
 
 
