@@ -1,5 +1,5 @@
 <h2>
-    <?php echo ($entity->getNom_evaluation() . " / code : " . $entity->getCode_evaluation()) ?>
+    <?php echo ("EVALUATION : " . $entity->getNom_evaluation() . " / code : " . $entity->getCode_evaluation()) ?>
 </h2>
 
 <div class="col" class="text-center tab">

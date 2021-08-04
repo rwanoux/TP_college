@@ -1,5 +1,5 @@
 <h2>
-    <?php echo ($entity->getNom_matiere() . " / code : " . $entity->getCode_matiere()) ?>
+    <?php echo ("MATIERE : " . $entity->getNom_matiere() . " / code : " . $entity->getCode_matiere()) ?>
 </h2>
 <div>
     <ul class="d-md-flex-col d-flex flex-col justify-content-around">

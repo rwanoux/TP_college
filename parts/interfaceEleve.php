@@ -1,4 +1,4 @@
-<h2><?php echo ($entity->getPrenom_eleve() . " " . $entity->getNom_eleve() . " / code : " . $entity->getCode_eleve()) ?>
+<h2><?php echo ("ELEVE : " . $entity->getPrenom_eleve() . " " . $entity->getNom_eleve() . " / code : " . $entity->getCode_eleve()) ?>
 </h2>
 <div>
     <ul class="d-md-flex-col d-flex flex-col justify-content-around">
@@ -61,10 +61,8 @@
 
             foreach ($eleveManager->getEvals($entity) as $result) {
                 $cour = $courManager->getById($result["eval"]->getCode_cour_evaluation());
-                echo ("donné par " . $result["prof"]->getNom_professeur() . " " . $result["prof"]->getPrenom_professeur());
-                echo ("-----------<br>");
-                echo ("SUJET : " . $cour->getNom_cour() . "<br>");
-                echo ("NOTE : " . $result["note"] . "<br>");
+                echo ("SUJET : " . $cour->getNom_cour() . " / donné par " . $result["prof"]->getNom_professeur() . " " . $result["prof"]->getPrenom_professeur() . "<br>");
+                echo ("NOTE : " . $result["note"] . "<br><br>");
             }
 
             ?>

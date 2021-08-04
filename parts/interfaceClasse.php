@@ -1,5 +1,5 @@
 <h2>
-    <?php echo ($entity->getNom_classe() . "/ code : " . $entity->getCode_classe()) ?>
+    <?php echo ("CLASSE : " . $entity->getNom_classe() . "/ code : " . $entity->getCode_classe()) ?>
 </h2>
 <div>
     <ul class="d-md-flex-col d-flex flex-col justify-content-around">

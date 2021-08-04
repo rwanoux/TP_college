@@ -1,5 +1,5 @@
 <h2 class="text-center">
-    <?php echo ($entity->getPrenom_professeur() . " " . $entity->getNom_professeur() . " / code : " . $entity->getCode_professeur()) ?>
+    <?php echo ("PROFESSEUR : " . $entity->getPrenom_professeur() . " " . $entity->getNom_professeur() . " / code : " . $entity->getCode_professeur()) ?>
 </h2>
 <div>
     <ul class="d-md-flex-col d-flex flex-col justify-content-around">

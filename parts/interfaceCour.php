@@ -1,5 +1,5 @@
 <h2>
-    <?php echo ($entity->getNom_cour() . "/ code : " . $entity->getCode_cour()) ?>
+    <?php echo ("COUR : " . $entity->getNom_cour() . "/ code : " . $entity->getCode_cour()) ?>
 </h2>
 <div>
     <ul class="d-md-flex-col d-flex flex-col justify-content-around">
