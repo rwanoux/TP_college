@@ -1,12 +1,12 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="./style/bootstrap.min.css">
+    <link rel="stylesheet" href="./style/main.css">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TP college</title>
 
@@ -22,7 +22,7 @@
 
         <nav class="navbar navbar-expand-lg navbar-dark py-3">
             <div class="container-fluid">
-                <h1 class="px-3"> <a  href="index.php">Bienvenu au college</a></h1>
+                <h1 class="px-3"> <a href="index.php">Bienvenu au college</a></h1>
                 <h3 class="ps-5">listes globales</h3>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -52,7 +52,7 @@
                         </li>
 
                     </ul>
-                   
+
                 </div>
             </div>
         </nav>

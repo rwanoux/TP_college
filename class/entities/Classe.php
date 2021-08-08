@@ -7,7 +7,7 @@ class Classe extends CollegeEntity
     private $nom_classe;
     private $code_prof_ref_classe;
     private $niveau_classe;
-    static private $attList=["code", "nom", "prof referent" ];
+    static private $attList = ["code", "nom", "prof referent", "niveau"];
 
 
     //---CONSTRUCT
@@ -18,24 +18,24 @@ class Classe extends CollegeEntity
     }
 
 
-    public static function createTableHeader(){
-      
+    public static function createTableHeader()
+    {
+
         echo ("<tr class='item-row-header text-center'>");
 
-         foreach(self::$attList as $att){
-            echo ("<th class='item-attribut-header' >".$att."</th>");
-         }
-        echo"</tr>";
-
+        foreach (self::$attList as $att) {
+            echo ("<th class='item-attribut-header' >" . $att . "</th>");
+        }
+        echo "</tr>";
     }
     public function createTableRow()
     {
 
-        echo("<tr class='item-row' itemId='".$this->getCode_classe(). "' itemType='".$this->getEntityType()."'>");
-        foreach($this as $att=>$value){
-            echo ("<td class='item-attribut' itemAttr='".$att."'>".$value."</td>");
+        echo ("<tr class='item-row' itemId='" . $this->getCode_classe() . "' itemType='" . $this->getEntityType() . "'>");
+        foreach ($this as $att => $value) {
+            echo ("<td class='item-attribut' itemAttr='" . $att . "'>" . $value . "</td>");
         }
-        echo"</tr>";
+        echo "</tr>";
     }
     /**
      * Get the value of code_classe

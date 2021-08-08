@@ -12,9 +12,9 @@
 
 
 <!-- JavaScript Bundle with Popper -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="./js/bootstrap.bundle.min.js"></script>
 <!--my js for hidding/revealing some parts -->
-<script src="main.js" type="module"></script>
+<script src="./js/main.js" type="module"></script>
 
 </body>
 
