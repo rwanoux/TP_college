@@ -1,19 +1,10 @@
 <h2>
     <?php echo ("COUR : " . $entity->getNom_cour() . "/ code : " . $entity->getCode_cour()) ?>
 </h2>
-<div>
-    <ul class="d-md-flex-col d-flex flex-col justify-content-around">
-        <li>
-            <a tabTarget="info" class="tabNav">infos générales</a>
-        </li>
-        <li>
-            <a tabTarget="classes" class="tabNav">classes</a>
-        </li>
-        <li>
-            <a tabTarget="evals" class="tabNav">évaluations</a>
-        </li>
-
-    </ul>
+<div class="d-md-flex-col d-flex flex-col justify-content-around">
+    <a tabTarget="info" class="tabNav active">infos générales</a>
+    <a tabTarget="classes" class="tabNav">classes</a>
+    <a tabTarget="evals" class="tabNav">évaluations</a>
 
 </div>
 <div class="col" class="text-center tab">

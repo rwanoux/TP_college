@@ -1,7 +1,7 @@
 <?php
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
-require('vendor/autoload.php');
+// require('vendor/autoload.php');
 //import connexion
 require('class/managers/connectDataBase.php'); //pdo
 
@@ -109,10 +109,6 @@ require_once('parts/header.php');
 
     <!-- details entity -->
     <?php
-        /*----------------------
-        details des entités
-        --------------------------*/
-
 
     } else if (isset($_GET["entityType"]) && isset($_GET["entityId"])) {
     ?>
@@ -146,27 +142,25 @@ require_once('parts/header.php');
                     break;
             }
             ?>
-    </div>
+    </div><!-- FIN details entity -->
+
     <?php
     } else {
     ?>
-    <!-- FIN details entity -->
+    <!-- si pas d'entité => image accueil -->
 
     <div class="row">
         <!-- image accueil -->
         <img class="w-100" src="./img/college.jpg" />
-        <!-- FIN image accueil -->
+
     </div>
     <?php
     }
 
     ?>
-
+    <!-- FIN image accueil -->
 </div>
-<!--------------------------->
-
-
-
+<!-------------FOOTER-------------->
 <?php
 require_once('parts/footer.php');
 ?>

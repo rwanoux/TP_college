@@ -1,15 +1,9 @@
 <h2><?php echo ("ELEVE : " . $entity->getPrenom_eleve() . " " . $entity->getNom_eleve() . " / code : " . $entity->getCode_eleve()) ?>
 </h2>
-<div>
-    <ul class="d-md-flex-col d-flex flex-col justify-content-around">
-        <li>
-            <a tabTarget="info" class="tabNav">informations</a>
-        </li>
-        <li>
-            <a tabTarget="scolaire" class="tabNav">détails scolaires</a>
-        </li>
+<div class="d-md-flex-col d-flex flex-col justify-content-around">
+    <a tabTarget="info" class="tabNav active">informations</a>
+    <a tabTarget="scolaire" class="tabNav">détails scolaires</a>
 
-    </ul>
 
 </div>
 <div class="col" class="text-center tab">
@@ -56,6 +50,7 @@
             ?>
         </p>
         <h5>ses résultats</h5>
+        <div id="calendar"></div>
         <p>
             <?php
 

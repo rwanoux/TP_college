@@ -15,6 +15,7 @@
 <script src="./js/bootstrap.bundle.min.js"></script>
 <!--my js for hidding/revealing some parts -->
 <script src="./js/main.js" type="module"></script>
+<script src="https://cdn.jsdelivr.net/npm/color-calendar/dist/bundle.js"></script>
 
 </body>
 

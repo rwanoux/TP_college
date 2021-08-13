@@ -1,18 +1,10 @@
 <h2 class="text-center">
     <?php echo ("PROFESSEUR : " . $entity->getPrenom_professeur() . " " . $entity->getNom_professeur() . " / code : " . $entity->getCode_professeur()) ?>
 </h2>
-<div>
-    <ul class="d-md-flex-col d-flex flex-col justify-content-around">
-        <li>
-            <a tabTarget="info" class="tabNav">informations</a>
-        </li>
-        <li>
-            <a tabTarget="contact" class="tabNav">contacts</a>
-        </li>
-        <li>
-            <a tabTarget="ens" class="tabNav">enseignement</a>
-        </li>
-    </ul>
+<div class="d-md-flex-col d-flex flex-col justify-content-around">
+    <a tabTarget="info" class="tabNav active">informations</a>
+    <a tabTarget="contact" class="tabNav">contacts</a>
+    <a tabTarget="ens" class="tabNav">enseignement</a>
 
 </div>
 <div class="col" class="text-center tab">

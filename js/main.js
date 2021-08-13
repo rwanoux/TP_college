@@ -72,8 +72,8 @@ for (let tab of tabsNav) {
     tab.addEventListener('click', ev => {
         let tabtarget;
         tabtarget = ev.currentTarget.getAttribute("tabTarget")
-
         toggleTabContent(tabtarget);
+
     });
 
 
@@ -87,4 +87,26 @@ function toggleTabContent(target) {
             content.classList.remove('active')
         }
     }
+    for (let tab of tabsNav) {
+        if (tab.getAttribute("tabTarget") == target) {
+            tab.classList.add('active')
+        } else {
+            tab.classList.remove('active')
+        }
+    }
 }
+
+
+let eleveCalendar = new Calendar({
+    id: "#calendar",
+    calendarSize: "small",
+    startWeekday: 1,
+    eventsData: [
+        {
+            start: '2021-08-09',
+            end: '2021-08-11',
+            name: "test1"
+        }
+    ]
+});
+console.log(eleveCalendar)

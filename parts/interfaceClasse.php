@@ -1,17 +1,11 @@
 <h2>
     <?php echo ("CLASSE : " . $entity->getNom_classe() . "/ code : " . $entity->getCode_classe()) ?>
 </h2>
-<div>
-    <ul class="d-md-flex-col d-flex flex-col justify-content-around">
-        <li>
-            <a tabTarget="info" class="tabNav">infos générales</a>
-        </li>
-        <li>
-            <a tabTarget="eff" class="tabNav">effectif</a>
-        </li>
-        <li>
-            <a tabTarget="cours" class="tabNav">cours suivis</a>
-        </li>
+<div class="d-md-flex-col d-flex flex-col justify-content-around">
+
+    <a tabTarget="info" class="tabNav active">infos générales</a>
+    <a tabTarget="eff" class="tabNav">effectif</a>
+    <a tabTarget="cours" class="tabNav">cours suivis</a>
 
 
     </ul>

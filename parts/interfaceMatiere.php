@@ -1,16 +1,9 @@
 <h2>
     <?php echo ("MATIERE : " . $entity->getNom_matiere() . " / code : " . $entity->getCode_matiere()) ?>
 </h2>
-<div>
-    <ul class="d-md-flex-col d-flex flex-col justify-content-around">
-        <li>
-            <a tabTarget="profs" class="tabNav">professeurs</a>
-        </li>
-        <li>
-            <a tabTarget="cours" class="tabNav">cours</a>
-        </li>
-
-    </ul>
+<div class="d-md-flex-col d-flex flex-col justify-content-around">
+    <a tabTarget="profs" class="tabNav active">professeurs</a>
+    <a tabTarget="cours" class="tabNav">cours</a>
 
 </div>
 <div class="col" class="text-center tab">
